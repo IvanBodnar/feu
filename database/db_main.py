@@ -5,7 +5,6 @@ from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 engine = create_engine('postgresql://ivan:ivan@localhost/feu')
 
-
 def conectar_db(user, password, host, database, port=5432):
     user = user
     password = password
@@ -19,6 +18,7 @@ def conectar_db(user, password, host, database, port=5432):
         return 'No se pudo conectar'
 
     return engine
+
 
 class ConnectToDatabase:
     def __init__(self, user, password, host, database, port=5432):
@@ -65,5 +65,5 @@ class Participantes(Base):
 
 
 # Importar desde la terminal para crear todas las tablas
-def create_tables(engine):
+def create_tables():
     Base.metadata.create_all(engine)
