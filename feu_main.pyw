@@ -3,6 +3,7 @@ from designer.gui_feu import *
 from database.db_main import *
 from database.db_add_data import *
 
+# Prueba clone
 
 class FormularioFeu(QtGui.QDialog):
     def __init__(self, parent=None):
