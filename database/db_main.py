@@ -1,36 +1,13 @@
 from sqlalchemy import (create_engine, Column, Integer, String, Date, Time, Float,
                         ForeignKey)
 from sqlalchemy.ext.declarative import declarative_base
+from externo.datos import *
 
 Base = declarative_base()
-engine = create_engine('postgresql://ivan:ivan@localhost/feu')
+engine = create_engine(ENGINE_CONNECTION_STRING)
 
-def conectar_db(user, password, host, database, port=5432):
-    user = user
-    password = password
-    host = host
-    port = port
-    database = database
-    try:
-        engine = create_engine('postgresql://{}:{}@{}:{}/{}'.format(user, password, host,
-                                                                    port, database))
-    except:
-        return 'No se pudo conectar'
-
-    return engine
-
-
-class ConnectToDatabase:
-    def __init__(self, user, password, host, database, port=5432):
-        self.user = user
-        self.password = password
-        self.host = host
-        self.port = port
-        self.database = database
-        self.engine = create_engine('postgresql://{}:{}@{}:{}/{}'.format(self.user, self.password, self.host,
-                                                                         self.port, self.database))
-
-
+if engine.connect():
+    print('conectado')
 
 
 # Contiene los datos relacionados al hecho
