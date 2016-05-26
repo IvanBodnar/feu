@@ -4,7 +4,7 @@ from database.db_main import *
 from database.db_add_data import *
 from externo.datos import *
 
-
+# PRUEBA CLONE
 class FormularioFeu(QtGui.QDialog):
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self, parent)

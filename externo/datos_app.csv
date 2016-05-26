@@ -1,5 +1,5 @@
 calles,engine,tipo_arteria
-DON ANSELMO AIETA,postgresql://ivan:ivan@localhost/feu,calle
+DON ANSELMO AIETA,postgresql://observatorio:observatorio@localhost/feu,calle
 ACASSUSO,,avenida
 AEROLINEAS ARGENTINAS,,autopista
 ACEVEDO,,metrobus
