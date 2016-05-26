@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'designer/gui_feu.ui'
 #
-# Created: Wed May 25 19:26:52 2016
+# Created: Thu May 26 11:40:44 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -115,11 +115,11 @@ class Ui_Dialog(object):
         self.label_4.setObjectName(_fromUtf8("label_4"))
         self.gridLayout.addWidget(self.label_4, 0, 0, 1, 1)
         self.tipoArteria1_comboBox = QtGui.QComboBox(self.tab)
-        self.tipoArteria1_comboBox.setEditable(True)
+        self.tipoArteria1_comboBox.setEditable(False)
         self.tipoArteria1_comboBox.setObjectName(_fromUtf8("tipoArteria1_comboBox"))
         self.gridLayout.addWidget(self.tipoArteria1_comboBox, 0, 3, 1, 1)
         self.tipoArteria2_comboBox = QtGui.QComboBox(self.tab)
-        self.tipoArteria2_comboBox.setEditable(True)
+        self.tipoArteria2_comboBox.setEditable(False)
         self.tipoArteria2_comboBox.setObjectName(_fromUtf8("tipoArteria2_comboBox"))
         self.gridLayout.addWidget(self.tipoArteria2_comboBox, 1, 3, 1, 1)
         self.verticalLayout_2.addLayout(self.gridLayout)

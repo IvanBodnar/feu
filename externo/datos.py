@@ -19,7 +19,10 @@ ENGINE_CONNECTION_STRING = datos_externos[0]['engine']
 # Lista con todas las calles, obtenidas del callejero de la USIG (ver callejero.py)
 CALLES_LIST = [x['calles'] for x in datos_externos]
 
-TIPO_ARTERIA_LIST = [x['tipo_arteria'] for x in datos_externos if x['tipo_arteria'] is not '']
+TIPO_ARTERIA_LIST = [''] + [x['tipo_arteria'] for x in datos_externos if x['tipo_arteria'] is not '']
 
+TIPO_SINIESTRO_LIST = [''] + [x['tipo_siniestro'] for x in datos_externos if x['tipo_siniestro'] is not '']
 
+TIPO_COLISION_LIST = [''] + [x['tipo_colision'] for x in datos_externos if x['tipo_colision'] is not '']
 
+ENTIDAD_INSTRUCTORA_LIST = [''] + [x['entidad_instructora'] for x in datos_externos if x['entidad_instructora'] is not '']
