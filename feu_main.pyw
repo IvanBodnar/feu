@@ -4,6 +4,7 @@ from database.db_main import *
 from database.db_add_data import *
 from externo.datos import *
 
+
 class FormularioFeu(QtGui.QDialog):
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self, parent)
@@ -48,9 +49,18 @@ class FormularioFeu(QtGui.QDialog):
                            entidad_instructora=self.ui.entidadInstructora_comboBox.currentText())
             session.add(hecho)
             session.commit()
-            print('agregado')
+            msg = QtGui.QMessageBox()
+            msg.setIcon(QtGui.QMessageBox.Information)
+            msg.setText('Dato Agregado')
+            result = msg.exec_()
+            if result == QtGui.QMessageBox.Ok:
+                print('ok')
         except:
             session.rollback()
+            msg = QtGui.QMessageBox()
+            msg.setIcon(QtGui.QMessageBox.Critical)
+            msg.setText('Dato no Agregado')
+            msg.exec_()
             print('no agregado')
 
 
