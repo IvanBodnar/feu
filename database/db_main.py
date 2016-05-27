@@ -4,7 +4,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from externo.datos import *
 
 Base = declarative_base()
-engine = create_engine(ENGINE_CONNECTION_STRING)
+engine = create_engine(ListasCombobox().get_engine())
 
 if engine.connect():
     print('conectado')
@@ -22,6 +22,8 @@ class Hechos(Base):
     altura_calle = Column(Integer())
     tipo_calle1 = Column(String(30))
     tipo_calle2 = Column(String(30))
+    caracteristica_calle1 = Column(String(30))
+    caracteristica_calle2 = Column(String(30))
     total_heridos = Column(Integer())
     total_obitos = Column(Integer())
     tipo_siniestro = Column(String(30))
@@ -37,8 +39,9 @@ class Participantes(Base):
 
     id_hecho = Column(Integer(), ForeignKey('hechos.id_hecho'))
     id_participante = Column(String(10), primary_key=True)
-    numero_participante = Column(String(5))
+    numero_participante = Column(Integer())
     tipo_participante = Column(String(30))
+    marca_participante = Column(String(50))
 
 
 # Importar desde la terminal para crear todas las tablas

@@ -16,20 +16,23 @@ class FormularioFeu(QtGui.QDialog):
         self.ui.calle1_comboBox.completer().setCompletionMode(QtGui.QCompleter.PopupCompletion)
         self.ui.calle2_comboBox.completer().setCompletionMode(QtGui.QCompleter.PopupCompletion)
 
-        QtCore.QObject.connect(self.ui.pushButton_AgregarDato,
+        QtCore.QObject.connect(self.ui.addHecho_pushButton,
                                QtCore.SIGNAL('clicked()'),
-                               self.add_data)
+                               self.add_data_hechos)
         self.populate_combobox()
         self.clear_form_hechos()
 
     def populate_combobox(self):
-        self.ui.calle1_comboBox.addItems(CALLES_LIST)
-        self.ui.calle2_comboBox.addItems(CALLES_LIST)
-        self.ui.tipoArteria1_comboBox.addItems(TIPO_ARTERIA_LIST)
-        self.ui.tipoArteria2_comboBox.addItems(TIPO_ARTERIA_LIST)
-        self.ui.tipoSiniestro_comboBox.addItems(TIPO_SINIESTRO_LIST)
-        self.ui.tipoColision_comboBox.addItems(TIPO_COLISION_LIST)
-        self.ui.entidadInstructora_comboBox.addItems(ENTIDAD_INSTRUCTORA_LIST)
+        lista_combobox = ListasCombobox()
+        self.ui.calle1_comboBox.addItems(lista_combobox.get_list('calles'))
+        self.ui.calle2_comboBox.addItems(lista_combobox.get_list('calles'))
+        self.ui.tipoArteria1_comboBox.addItems(lista_combobox.get_list('tipo_calle'))
+        self.ui.tipoArteria2_comboBox.addItems(lista_combobox.get_list('tipo_calle'))
+        self.ui.tipoSiniestro_comboBox.addItems(lista_combobox.get_list('tipo_siniestro'))
+        self.ui.tipoColision_comboBox.addItems(lista_combobox.get_list('tipo_siniestro'))
+        self.ui.entidadInstructora_comboBox.addItems(lista_combobox.get_list('entidad_instructora'))
+        self.ui.tipoParticipante_comboBox.addItems(lista_combobox.get_list('tipo_participante'))
+        self.ui.marcaParticipante_comboBox.addItems(lista_combobox.get_list('marca_participante'))
 
     def clear_form_hechos(self):
         self.ui.calle1_comboBox.clearEditText()
@@ -40,9 +43,13 @@ class FormularioFeu(QtGui.QDialog):
         self.ui.tipoColision_comboBox.setCurrentIndex(0)
         self.ui.entidadInstructora_comboBox.setCurrentIndex(0)
 
-    def add_data(self):
-        try:
+    def add_data_hechos(self):
 
+        msg_no_agregado = QMessageBox()
+        msg_no_agregado.setIcon(QMessageBox.Critical)
+        msg_no_agregado.setText('Dato no Agregado')
+
+        try:
             confirm_msg = QMessageBox()
             confirm_msg.setIcon(QMessageBox.Question)
             confirm_msg.setText('Agregar Dato?')
@@ -50,11 +57,11 @@ class FormularioFeu(QtGui.QDialog):
             confirm_msg_result = confirm_msg.exec_()
 
             if confirm_msg_result == QMessageBox.Yes:
-                hecho = Hechos(id_hecho=self.ui.spinBox_NumeroHecho.value(),
+                hecho = Hechos(#id_hecho='cosa', #PARA TESTEAR
                                fecha=self.ui.fecha_dateEdit.date().toPyDate(),
                                hora=self.ui.hora_timeEdit.time().toString(),
-                               calle1=self.ui.calle1_comboBox.currentText(),
-                               calle2=self.ui.calle2_comboBox.currentText(),
+                               calle1=self.ui.calle1_comboBox.currentText().lower(),
+                               calle2=self.ui.calle2_comboBox.currentText().lower(),
                                tipo_calle1=self.ui.tipoArteria1_comboBox.currentText(),
                                tipo_calle2=self.ui.tipoArteria2_comboBox.currentText(),
                                altura_calle=self.ui.altura_spinBox.value(),
@@ -76,22 +83,17 @@ class FormularioFeu(QtGui.QDialog):
                     print('ok')
 
             else:
-                msg = QMessageBox()
-                msg.setIcon(QMessageBox.Critical)
-                msg.setText('Dato no Agregado')
-                msg.exec_()
+                msg_no_agregado.exec_()
                 print('no agregado')
 
-
         except exc.SQLAlchemyError as e:
-
             session.rollback()
-
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Critical)
-            msg.setText('Dato no Agregado')
-            msg.exec_()
+            msg_no_agregado.setDetailedText(e.args[0])
+            msg_no_agregado.exec_()
             print('no agregado')
+
+        # else:
+        #     msg_no_agregado.exec_()
 
 
 if __name__ == '__main__':
