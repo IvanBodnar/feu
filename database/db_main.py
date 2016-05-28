@@ -1,10 +1,13 @@
 from sqlalchemy import (create_engine, Column, Integer, String, Date, Time, Float,
-                        ForeignKey)
+                        ForeignKey, func)
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
 from externo.datos import *
 
 Base = declarative_base()
 engine = create_engine(ListasCombobox().get_engine())
+Session = sessionmaker(bind=engine)
+session = Session()
 
 if engine.connect():
     print('conectado')
@@ -26,24 +29,37 @@ class Hechos(Base):
     caracteristica_calle2 = Column(String(30))
     total_heridos = Column(Integer())
     total_obitos = Column(Integer())
-    tipo_siniestro = Column(String(30))
     tipo_colision = Column(String(30))
     entidad_instructora = Column(String(30))
     longitud = Column(Float())
     latitud = Column(Float())
 
 
+
 # Contiene los participantes (vehículos, peatones, objetos fijos)
 class Participantes(Base):
     __tablename__ = 'participantes'
 
+    id_participante = Column(Integer(), primary_key=True)
     id_hecho = Column(Integer(), ForeignKey('hechos.id_hecho'))
-    id_participante = Column(String(10), primary_key=True)
-    numero_participante = Column(Integer())
     tipo_participante = Column(String(30))
     marca_participante = Column(String(50))
+
+# Contiene las víctimas asociadas a cada hecho
+class Victimas(Base):
+    __tablename__ = 'victimas'
+
+    id_victima = Column(Integer(), primary_key=True)
+    id_hecho = Column(Integer(), ForeignKey('hechos.id_hecho'))
+    sexo = Column(String(5))
+    edad = Column(Integer())
+    rol = Column(String(30))
 
 
 # Importar desde la terminal para crear todas las tablas
 def create_tables():
     Base.metadata.create_all(engine)
+
+def maxima_id():
+    return session.query(func.max(Hechos.id_hecho)).first()[0]
+
