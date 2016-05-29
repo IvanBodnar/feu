@@ -3,8 +3,7 @@ from designer.gui_feu import *
 from database.db_main import *
 from database.db_add_data import *
 from externo.datos import *
-from PyQt4.QtGui import QMessageBox
-from sqlalchemy import exc
+
 
 
 
@@ -56,140 +55,48 @@ class FormularioFeu(QtGui.QDialog):
 
     def add_data_hechos(self):
 
-        msg_no_agregado = QMessageBox()
-        msg_no_agregado.setIcon(QMessageBox.Critical)
-        msg_no_agregado.setText('Dato no Agregado')
+        table = Hechos(  # id_hecho='cosa', #PARA TESTEAR
+            fecha=self.ui.fecha_dateEdit.date().toPyDate(),
+            hora=self.ui.hora_timeEdit.time().toString(),
+            calle1=self.ui.calle1_comboBox.currentText().lower(),
+            calle2=self.ui.calle2_comboBox.currentText().lower(),
+            tipo_calle1=self.ui.tipoArteria1_comboBox.currentText(),
+            tipo_calle2=self.ui.tipoArteria2_comboBox.currentText(),
+            altura_calle=self.ui.altura_spinBox.value(),
+            tipo_colision=self.ui.tipoColision_comboBox.currentText(),
+            total_heridos=self.ui.totalHeridos_spinBox.value(),
+            total_obitos=self.ui.totalObitos_spinBox.value(),
+            entidad_instructora=self.ui.entidadInstructora_comboBox.currentText())
 
-        try:
-            confirm_msg = QMessageBox()
-            confirm_msg.setIcon(QMessageBox.Question)
-            confirm_msg.setText('Agregar Dato?')
-            confirm_msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
-            confirm_msg_result = confirm_msg.exec_()
+        agregar = AddData(table=table)
+        agregar = agregar.add()
 
-            if confirm_msg_result == QMessageBox.Yes:
-                hecho = Hechos(#id_hecho='cosa', #PARA TESTEAR
-                               fecha=self.ui.fecha_dateEdit.date().toPyDate(),
-                               hora=self.ui.hora_timeEdit.time().toString(),
-                               calle1=self.ui.calle1_comboBox.currentText().lower(),
-                               calle2=self.ui.calle2_comboBox.currentText().lower(),
-                               tipo_calle1=self.ui.tipoArteria1_comboBox.currentText(),
-                               tipo_calle2=self.ui.tipoArteria2_comboBox.currentText(),
-                               altura_calle=self.ui.altura_spinBox.value(),
-                               tipo_colision=self.ui.tipoColision_comboBox.currentText(),
-                               total_heridos=self.ui.totalHeridos_spinBox.value(),
-                               total_obitos=self.ui.totalObitos_spinBox.value(),
-                               entidad_instructora=self.ui.entidadInstructora_comboBox.currentText())
-                session.add(hecho)
-                session.commit()
-
-                self.ui.idHecho_spinBox.setValue(maxima_id())
-                self.ui.idHecho_victimas_spinBox.setValue(maxima_id())
-
-                self.clear_form_hechos()
-
-                msg = QMessageBox()
-                msg.setIcon(QMessageBox.Information)
-                msg.setText('Dato Agregado')
-                result = msg.exec_()
-                if result == QMessageBox.Ok:
-                    print('ok')
-
-            else:
-                msg_no_agregado.exec_()
-                print('no agregado')
-
-        except exc.SQLAlchemyError as e:
-            session.rollback()
-            msg_no_agregado.setDetailedText(e.args[0])
-            msg_no_agregado.exec_()
-            print('no agregado')
-
-        # else:
-        #     msg_no_agregado.exec_()
-
+        if agregar:
+            self.ui.idHecho_spinBox.setValue(maxima_id())
+            self.ui.idHecho_victimas_spinBox.setValue(maxima_id())
 
     def add_data_participantes(self):
 
-        msg_no_agregado = QMessageBox()
-        msg_no_agregado.setIcon(QMessageBox.Critical)
-        msg_no_agregado.setText('Dato no Agregado')
+        table = Participantes(
+            id_hecho=self.ui.idHecho_spinBox.value(),
+            tipo_participante=self.ui.tipoParticipante_comboBox.currentText(),
+            marca_participante=self.ui.marcaParticipante_comboBox.currentText()
+        )
 
-        try:
-            confirm_msg = QMessageBox()
-            confirm_msg.setIcon(QMessageBox.Question)
-            confirm_msg.setText('Agregar Dato?')
-            confirm_msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
-            confirm_msg_result = confirm_msg.exec_()
-
-            if confirm_msg_result == QMessageBox.Yes:
-                participante = Participantes(
-                    id_hecho=self.ui.idHecho_spinBox.value(),
-                    tipo_participante=self.ui.tipoParticipante_comboBox.currentText(),
-                    marca_participante=self.ui.marcaParticipante_comboBox.currentText()
-                )
-
-                session.add(participante)
-                session.commit()
-
-                msg = QMessageBox()
-                msg.setIcon(QMessageBox.Information)
-                msg.setText('Dato Agregado')
-                result = msg.exec_()
-                if result == QMessageBox.Ok:
-                    print('ok')
-
-                else:
-                    msg_no_agregado.exec_()
-                    print('no agregado')
-
-        except exc.SQLAlchemyError as e:
-            session.rollback()
-            msg_no_agregado.setDetailedText(e.args[0])
-            msg_no_agregado.exec_()
-            print('no agregado')
+        agregar = AddData(table=table)
+        agregar.add()
 
     def add_data_victimas(self):
 
-        msg_no_agregado = QMessageBox()
-        msg_no_agregado.setIcon(QMessageBox.Critical)
-        msg_no_agregado.setText('Dato no Agregado')
+        table = Victimas(
+            id_hecho=self.ui.idHecho_victimas_spinBox.value(),
+            sexo=self.ui.sexo_comboBox.currentText(),
+            edad=self.ui.edad_spinBox.value(),
+            rol=self.ui.rol_comboBox.currentText()
+        )
 
-        try:
-            confirm_msg = QMessageBox()
-            confirm_msg.setIcon(QMessageBox.Question)
-            confirm_msg.setText('Agregar Dato?')
-            confirm_msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
-            confirm_msg_result = confirm_msg.exec_()
-
-            if confirm_msg_result == QMessageBox.Yes:
-                victima = Victimas(
-                    id_hecho=self.ui.idHecho_victimas_spinBox.value(),
-                    sexo=self.ui.sexo_comboBox.currentText(),
-                    edad=self.ui.edad_spinBox.value(),
-                    rol=self.ui.rol_comboBox.currentText()
-                )
-
-                session.add(victima)
-                session.commit()
-
-                msg = QMessageBox()
-                msg.setIcon(QMessageBox.Information)
-                msg.setText('Dato Agregado')
-                result = msg.exec_()
-                if result == QMessageBox.Ok:
-                    print('ok')
-
-                else:
-                    msg_no_agregado.exec_()
-                    print('no agregado')
-
-        except exc.SQLAlchemyError as e:
-            session.rollback()
-            msg_no_agregado.setDetailedText(e.args[0])
-            msg_no_agregado.exec_()
-            print('no agregado')
-
+        agregar = AddData(table=table)
+        agregar.add()
 
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)
