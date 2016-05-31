@@ -6,8 +6,8 @@ import os.path
 # pueden ser usadas en los demas módulos
 class ListasCombobox:
     def __init__(self):
-        BASE_DIR = os.path.dirname((os.path.abspath(__file__)))
-        csv_file = '{}/datos_app.csv'.format(BASE_DIR)
+        base_dir = os.path.dirname((os.path.abspath(__file__)))
+        csv_file = '{}/datos_app.csv'.format(base_dir)
 
         with open(csv_file) as fh:
             self.reader = csv.DictReader(fh)

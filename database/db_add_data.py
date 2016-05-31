@@ -6,6 +6,7 @@ from sqlalchemy import exc
 Session = sessionmaker(bind=engine)
 session = Session()
 
+
 # Maneja la inserción de datos en la db. Instanciar un objeto de tabla
 # con los datos a agregar y pasarlos a __init__. Incluye pop-ups para
 # cada operación
