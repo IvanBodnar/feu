@@ -354,11 +354,45 @@
         </layout>
        </item>
        <item>
-        <widget class="QPushButton" name="addHecho_pushButton">
+        <widget class="QLabel" name="label_21">
          <property name="text">
-          <string>Agregar Dato</string>
+          <string>Observaciones:</string>
          </property>
         </widget>
+       </item>
+       <item>
+        <widget class="QPlainTextEdit" name="observaciones_plainTextEdit"/>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_14">
+         <item>
+          <spacer name="horizontalSpacer_12">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="clearHechos_pushButton">
+           <property name="text">
+            <string>Limpiar</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="addHecho_pushButton">
+           <property name="text">
+            <string>Agregar Dato</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
        <item>
         <spacer name="verticalSpacer">

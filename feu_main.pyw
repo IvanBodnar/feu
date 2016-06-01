@@ -82,7 +82,9 @@ class FormularioFeu(QtGui.QDialog):
             total_obitos=self.ui.totalObitos_spinBox.value(),
             entidad_instructora=self.ui.entidadInstructora_comboBox.currentText(),
             longitud=self.ui.longitud_lineEdit.text(),
-            latitud=self.ui.latitud_lineEdit.text())
+            latitud=self.ui.latitud_lineEdit.text(),
+            observaciones=self.ui.observaciones_plainTextEdit.toPlainText()
+        )
 
         agregar = AddData(table=table)
         agregar = agregar.add()

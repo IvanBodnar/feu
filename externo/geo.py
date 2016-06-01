@@ -14,4 +14,4 @@ def geocodificar(calle1, calle2, altura=None):
     return result['results'][0]['geometry']['location']
 
 
-#print(geocodificar('callao', '1400'))
+#print(geocodificar("rivadavia av", 'cuzco'))
