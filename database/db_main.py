@@ -35,7 +35,6 @@ class Hechos(Base):
     latitud = Column(Float())
 
 
-
 # Contiene los participantes (vehículos, peatones, objetos fijos)
 class Participantes(Base):
     __tablename__ = 'participantes'
@@ -44,6 +43,7 @@ class Participantes(Base):
     id_hecho = Column(Integer(), ForeignKey('hechos.id_hecho'))
     tipo_participante = Column(String(30))
     marca_participante = Column(String(50))
+
 
 # Contiene las víctimas asociadas a cada hecho
 class Victimas(Base):

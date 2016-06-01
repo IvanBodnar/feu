@@ -56,8 +56,13 @@ class FormularioFeu(QtGui.QDialog):
         self.ui.entidadInstructora_comboBox.setCurrentIndex(0)
 
     def geocodificar_campos(self):
-        coordenadas = geocodificar(self.ui.calle1_comboBox.currentText(),
-                                   self.ui.calle2_comboBox.currentText())
+        if self.ui.altura_spinBox.value():
+            coordenadas = geocodificar(self.ui.calle1_comboBox.currentText(),
+                                       self.ui.calle2_comboBox.currentText(),
+                                       self.ui.altura_spinBox.value())
+        else:
+            coordenadas = geocodificar(self.ui.calle1_comboBox.currentText(),
+                                       self.ui.calle2_comboBox.currentText())
 
         self.ui.latitud_lineEdit.setText(str(coordenadas['lat']))
         self.ui.longitud_lineEdit.setText(str(coordenadas['lng']))
