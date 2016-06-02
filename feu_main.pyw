@@ -3,6 +3,8 @@ from designer.gui_feu import *
 from database.db_main import *
 from database.db_add_data import *
 from externo.datos import *
+from externo.geo import *
+
 
 
 class FormularioFeu(QtGui.QDialog):
@@ -23,6 +25,9 @@ class FormularioFeu(QtGui.QDialog):
         QtCore.QObject.connect(self.ui.addVictima_pushButton,
                                QtCore.SIGNAL('clicked()'),
                                self.add_data_victimas)
+        QtCore.QObject.connect(self.ui.geocodificar_pushButton,
+                                QtCore.SIGNAL('clicked()'),
+                               self.geocodificar_campos)
 
         if maxima_id():
             self.ui.idHecho_spinBox.setValue(maxima_id())
@@ -51,6 +56,18 @@ class FormularioFeu(QtGui.QDialog):
         self.ui.tipoColision_comboBox.setCurrentIndex(0)
         self.ui.entidadInstructora_comboBox.setCurrentIndex(0)
 
+    def geocodificar_campos(self):
+        if self.ui.altura_spinBox.value():
+            coordenadas = geocodificar(self.ui.calle1_comboBox.currentText(),
+                                       self.ui.calle2_comboBox.currentText(),
+                                       self.ui.altura_spinBox.value())
+        else:
+            coordenadas = geocodificar(self.ui.calle1_comboBox.currentText(),
+                                       self.ui.calle2_comboBox.currentText())
+
+        self.ui.latitud_lineEdit.setText(str(coordenadas['lat']))
+        self.ui.longitud_lineEdit.setText(str(coordenadas['lng']))
+
     def add_data_hechos(self):
 
         table = Hechos(  # id_hecho='cosa', #PARA TESTEAR
@@ -64,7 +81,10 @@ class FormularioFeu(QtGui.QDialog):
             tipo_colision=self.ui.tipoColision_comboBox.currentText(),
             total_heridos=self.ui.totalHeridos_spinBox.value(),
             total_obitos=self.ui.totalObitos_spinBox.value(),
-            entidad_instructora=self.ui.entidadInstructora_comboBox.currentText()
+            entidad_instructora=self.ui.entidadInstructora_comboBox.currentText(),
+            longitud=self.ui.longitud_lineEdit.text(),
+            latitud=self.ui.latitud_lineEdit.text(),
+            observaciones=self.ui.observaciones_plainTextEdit.toPlainText()
         )
 
         agregar = AddData(table=table)

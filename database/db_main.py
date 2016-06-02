@@ -1,5 +1,5 @@
 from sqlalchemy import (create_engine, Column, Integer, String, Date, Time, Float,
-                        ForeignKey, func)
+                        Text, ForeignKey, func)
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from externo.datos import *
@@ -19,7 +19,7 @@ class Hechos(Base):
 
     id_hecho = Column(Integer(), primary_key=True)
     fecha = Column(Date())
-    hora = Column(Time())
+    hora = Column(Time(timezone=True))
     calle1 = Column(String(100))
     calle2 = Column(String(100))
     altura_calle = Column(Integer())
@@ -31,9 +31,9 @@ class Hechos(Base):
     total_obitos = Column(Integer())
     tipo_colision = Column(String(30))
     entidad_instructora = Column(String(30))
-    longitud = Column(Float())
-    latitud = Column(Float())
-
+    longitud = Column(Float(), default=0)
+    latitud = Column(Float(), default=0)
+    observaciones = Column(Text())
 
 
 # Contiene los participantes (vehículos, peatones, objetos fijos)
@@ -44,6 +44,7 @@ class Participantes(Base):
     id_hecho = Column(Integer(), ForeignKey('hechos.id_hecho'))
     tipo_participante = Column(String(30))
     marca_participante = Column(String(50))
+
 
 # Contiene las víctimas asociadas a cada hecho
 class Victimas(Base):
