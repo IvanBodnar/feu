@@ -5,8 +5,6 @@ from database.db_add_data import *
 from externo.datos import *
 
 
-
-
 class FormularioFeu(QtGui.QDialog):
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self, parent)
@@ -66,7 +64,8 @@ class FormularioFeu(QtGui.QDialog):
             tipo_colision=self.ui.tipoColision_comboBox.currentText(),
             total_heridos=self.ui.totalHeridos_spinBox.value(),
             total_obitos=self.ui.totalObitos_spinBox.value(),
-            entidad_instructora=self.ui.entidadInstructora_comboBox.currentText())
+            entidad_instructora=self.ui.entidadInstructora_comboBox.currentText()
+        )
 
         agregar = AddData(table=table)
         agregar = agregar.add()
