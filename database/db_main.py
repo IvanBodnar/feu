@@ -1,16 +1,21 @@
+import json
 from sqlalchemy import (create_engine, Column, Integer, String, Date, Time, Float,
                         Text, ForeignKey, func)
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from externo.datos import *
 
+base_dir = os.path.dirname((os.path.abspath(__file__)))
+
+with open('{}/config.json'.format(base_dir)) as fh:
+    db_string = json.loads(fh.read())['db_string']
+
+engine = create_engine(db_string)
+
 Base = declarative_base()
-engine = create_engine(ListasCombobox().get_engine())
 Session = sessionmaker(bind=engine)
 session = Session()
-
-if engine.connect():
-    print('conectado')
+print('conectado')
 
 
 # Contiene los datos relacionados al hecho
@@ -31,8 +36,8 @@ class Hechos(Base):
     total_obitos = Column(Integer())
     tipo_colision = Column(String(30))
     entidad_instructora = Column(String(30))
-    longitud = Column(Float(), default=0)
-    latitud = Column(Float(), default=0)
+    longitud = Column(Float(), default=None)
+    latitud = Column(Float(), default=None)
     observaciones = Column(Text())
 
 
@@ -60,6 +65,7 @@ class Victimas(Base):
 # Importar desde la terminal para crear todas las tablas
 def create_tables():
     Base.metadata.create_all(engine)
+
 
 def maxima_id():
     return session.query(func.max(Hechos.id_hecho)).first()[0]

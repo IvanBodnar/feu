@@ -4,7 +4,8 @@ from database.db_main import *
 from database.db_add_data import *
 from externo.datos import *
 from externo.geo import *
-
+from PyQt4.QtGui import QMessageBox
+from sqlalchemy import exc
 
 
 class FormularioFeu(QtGui.QDialog):
@@ -13,27 +14,47 @@ class FormularioFeu(QtGui.QDialog):
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
 
-        self.ui.calle1_comboBox.completer().setCompletionMode(QtGui.QCompleter.PopupCompletion)
-        self.ui.calle2_comboBox.completer().setCompletionMode(QtGui.QCompleter.PopupCompletion)
+        try:
+            engine.connect()
+            self.ui.calle1_comboBox.completer().setCompletionMode(QtGui.QCompleter.PopupCompletion)
+            self.ui.calle2_comboBox.completer().setCompletionMode(QtGui.QCompleter.PopupCompletion)
 
-        QtCore.QObject.connect(self.ui.addHecho_pushButton,
-                               QtCore.SIGNAL('clicked()'),
-                               self.add_data_hechos)
-        QtCore.QObject.connect(self.ui.addParticipante_pushButton,
-                               QtCore.SIGNAL('clicked()'),
-                               self.add_data_participantes)
-        QtCore.QObject.connect(self.ui.addVictima_pushButton,
-                               QtCore.SIGNAL('clicked()'),
-                               self.add_data_victimas)
-        QtCore.QObject.connect(self.ui.geocodificar_pushButton,
-                                QtCore.SIGNAL('clicked()'),
-                               self.geocodificar_campos)
+            QtCore.QObject.connect(self.ui.addHecho_pushButton,
+                                   QtCore.SIGNAL('clicked()'),
+                                   self.add_data_hechos)
+            QtCore.QObject.connect(self.ui.addParticipante_pushButton,
+                                   QtCore.SIGNAL('clicked()'),
+                                   self.add_data_participantes)
+            QtCore.QObject.connect(self.ui.addVictima_pushButton,
+                                   QtCore.SIGNAL('clicked()'),
+                                   self.add_data_victimas)
+            QtCore.QObject.connect(self.ui.geocodificar_pushButton,
+                                   QtCore.SIGNAL('clicked()'),
+                                   self.geocodificar_campos)
+            QtCore.QObject.connect(self.ui.clearHechos_pushButton,
+                                   QtCore.SIGNAL('clicked()'),
+                                   self.clear_form_hechos)
+            QtCore.QObject.connect(self.ui.clearParticipante_pushButton,
+                                   QtCore.SIGNAL('clicked()'),
+                                   self.clear_form_participantes)
+            QtCore.QObject.connect(self.ui.clearVictima_pushButton,
+                                   QtCore.SIGNAL('clicked()'),
+                                   self.clear_form_victimas)
 
-        if maxima_id():
-            self.ui.idHecho_spinBox.setValue(maxima_id())
-            self.ui.idHecho_victimas_spinBox.setValue(maxima_id())
-        self.populate_combobox()
-        self.clear_form_hechos()
+            self.populate_combobox()
+            if maxima_id():
+                self.ui.idHecho_spinBox.setValue(maxima_id())
+                self.ui.idHecho_victimas_spinBox.setValue(maxima_id())
+            self.clear_form_hechos()
+            self.clear_form_participantes()
+            self.clear_form_victimas()
+
+        except exc.OperationalError as e:
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Critical)
+            msg.setText('Sin conexión a la Base de Datos')
+            msg.setDetailedText(e.args[0])
+            msg.exec_()
 
     def populate_combobox(self):
         lista_combobox = ListasCombobox()
@@ -55,6 +76,20 @@ class FormularioFeu(QtGui.QDialog):
         self.ui.tipoArteria2_comboBox.setCurrentIndex(0)
         self.ui.tipoColision_comboBox.setCurrentIndex(0)
         self.ui.entidadInstructora_comboBox.setCurrentIndex(0)
+        self.ui.totalHeridos_spinBox.setValue(0)
+        self.ui.totalObitos_spinBox.setValue(0)
+        self.ui.latitud_doubleSpinBox.setValue(0.00000000)
+        self.ui.longitud_doubleSpinBox.setValue(0.00000000)
+        self.ui.observaciones_plainTextEdit.clear()
+
+    def clear_form_participantes(self):
+        self.ui.tipoParticipante_comboBox.setCurrentIndex(0)
+        self.ui.marcaParticipante_comboBox.setCurrentIndex(0)
+
+    def clear_form_victimas(self):
+        self.ui.sexo_comboBox.setCurrentIndex(0)
+        self.ui.edad_spinBox.setValue(0)
+        self.ui.rol_comboBox.setCurrentIndex(0)
 
     def geocodificar_campos(self):
         if self.ui.altura_spinBox.value():
@@ -65,10 +100,21 @@ class FormularioFeu(QtGui.QDialog):
             coordenadas = geocodificar(self.ui.calle1_comboBox.currentText(),
                                        self.ui.calle2_comboBox.currentText())
 
-        self.ui.latitud_lineEdit.setText(str(coordenadas['lat']))
-        self.ui.longitud_lineEdit.setText(str(coordenadas['lng']))
+        self.ui.latitud_doubleSpinBox.setValue(coordenadas['lat'])
+        self.ui.longitud_doubleSpinBox.setValue(coordenadas['lng'])
 
     def add_data_hechos(self):
+
+        if self.ui.longitud_doubleSpinBox.value():
+            long = self.ui.longitud_doubleSpinBox.value()
+        else:
+            long = None
+        if self.ui.latitud_doubleSpinBox.value():
+            lat = self.ui.latitud_doubleSpinBox.value()
+        else:
+            lat = None
+
+        print(long, lat)
 
         table = Hechos(  # id_hecho='cosa', #PARA TESTEAR
             fecha=self.ui.fecha_dateEdit.date().toPyDate(),
@@ -82,8 +128,8 @@ class FormularioFeu(QtGui.QDialog):
             total_heridos=self.ui.totalHeridos_spinBox.value(),
             total_obitos=self.ui.totalObitos_spinBox.value(),
             entidad_instructora=self.ui.entidadInstructora_comboBox.currentText(),
-            longitud=self.ui.longitud_lineEdit.text(),
-            latitud=self.ui.latitud_lineEdit.text(),
+            longitud=long,
+            latitud=lat,
             observaciones=self.ui.observaciones_plainTextEdit.toPlainText()
         )
 
@@ -93,6 +139,7 @@ class FormularioFeu(QtGui.QDialog):
         if agregar:
             self.ui.idHecho_spinBox.setValue(maxima_id())
             self.ui.idHecho_victimas_spinBox.setValue(maxima_id())
+            self.clear_form_hechos()
 
     def add_data_participantes(self):
 
@@ -105,6 +152,9 @@ class FormularioFeu(QtGui.QDialog):
         agregar = AddData(table=table)
         agregar.add()
 
+        if agregar:
+            self.clear_form_participantes()
+
     def add_data_victimas(self):
 
         table = Victimas(
@@ -116,6 +166,9 @@ class FormularioFeu(QtGui.QDialog):
 
         agregar = AddData(table=table)
         agregar.add()
+
+        if agregar:
+            self.clear_form_victimas()
 
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)

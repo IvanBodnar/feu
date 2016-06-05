@@ -1,5 +1,5 @@
 calles,engine,tipo_calle,caracteristica_calle,tipo_siniestro,tipo_colision,entidad_instructora,tipo_participante,marca_participante,sexo,rol
-DON ANSELMO AIETA,postgresql://observatorio:observatorio@localhost/feu,calle,metrobus,lesiones,colision,pfa,automovil,ford,m,peaton
+DON ANSELMO AIETA,postgresql://observatorio:observatorio@localhost/fe,calle,metrobus,lesiones,colision,pfa,automovil,ford,m,peaton
 ACASSUSO,,avenida,ciclovia,homicidio,vuelco,metropolitana,motocicleta,chevrolet,f,conductor
 AEROLINEAS ARGENTINAS,,autopista,carril exclusivo,,incendio,gendarmeria,peaton,fiat,,acompañante
 ACEVEDO,,otros,calle de convivencia,,explosion,prefectura,camion,volkswagen,,pasajero

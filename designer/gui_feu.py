@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'designer/gui_feu.ui'
 #
-# Created: Wed Jun  1 09:50:15 2016
+# Created: Thu Jun  2 18:46:31 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -128,20 +128,33 @@ class Ui_Dialog(object):
         self.horizontalLayout_12 = QtGui.QHBoxLayout()
         self.horizontalLayout_12.setObjectName(_fromUtf8("horizontalLayout_12"))
         self.label_11 = QtGui.QLabel(self.hechos_tab)
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Maximum, QtGui.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_11.sizePolicy().hasHeightForWidth())
+        self.label_11.setSizePolicy(sizePolicy)
         self.label_11.setObjectName(_fromUtf8("label_11"))
         self.horizontalLayout_12.addWidget(self.label_11)
-        self.latitud_lineEdit = QtGui.QLineEdit(self.hechos_tab)
-        self.latitud_lineEdit.setReadOnly(True)
-        self.latitud_lineEdit.setObjectName(_fromUtf8("latitud_lineEdit"))
-        self.horizontalLayout_12.addWidget(self.latitud_lineEdit)
+        self.latitud_doubleSpinBox = QtGui.QDoubleSpinBox(self.hechos_tab)
+        self.latitud_doubleSpinBox.setReadOnly(True)
+        self.latitud_doubleSpinBox.setDecimals(8)
+        self.latitud_doubleSpinBox.setMinimum(-99.99)
+        self.latitud_doubleSpinBox.setObjectName(_fromUtf8("latitud_doubleSpinBox"))
+        self.horizontalLayout_12.addWidget(self.latitud_doubleSpinBox)
         self.label_14 = QtGui.QLabel(self.hechos_tab)
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Maximum, QtGui.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_14.sizePolicy().hasHeightForWidth())
+        self.label_14.setSizePolicy(sizePolicy)
         self.label_14.setObjectName(_fromUtf8("label_14"))
         self.horizontalLayout_12.addWidget(self.label_14)
-        self.longitud_lineEdit = QtGui.QLineEdit(self.hechos_tab)
-        self.longitud_lineEdit.setEnabled(True)
-        self.longitud_lineEdit.setReadOnly(True)
-        self.longitud_lineEdit.setObjectName(_fromUtf8("longitud_lineEdit"))
-        self.horizontalLayout_12.addWidget(self.longitud_lineEdit)
+        self.longitud_doubleSpinBox = QtGui.QDoubleSpinBox(self.hechos_tab)
+        self.longitud_doubleSpinBox.setReadOnly(True)
+        self.longitud_doubleSpinBox.setDecimals(8)
+        self.longitud_doubleSpinBox.setMinimum(-99.99)
+        self.longitud_doubleSpinBox.setObjectName(_fromUtf8("longitud_doubleSpinBox"))
+        self.horizontalLayout_12.addWidget(self.longitud_doubleSpinBox)
         self.verticalLayout_2.addLayout(self.horizontalLayout_12)
         self.horizontalLayout_13 = QtGui.QHBoxLayout()
         self.horizontalLayout_13.setObjectName(_fromUtf8("horizontalLayout_13"))
