@@ -6,6 +6,8 @@ from externo.datos import *
 from externo.geo import *
 from PyQt4.QtGui import QMessageBox
 from sqlalchemy import exc
+import requests
+from requests import exceptions
 
 
 class FormularioFeu(QtGui.QDialog):
@@ -92,16 +94,23 @@ class FormularioFeu(QtGui.QDialog):
         self.ui.rol_comboBox.setCurrentIndex(0)
 
     def geocodificar_campos(self):
-        if self.ui.altura_spinBox.value():
-            coordenadas = geocodificar(self.ui.calle1_comboBox.currentText(),
-                                       self.ui.calle2_comboBox.currentText(),
-                                       self.ui.altura_spinBox.value())
-        else:
-            coordenadas = geocodificar(self.ui.calle1_comboBox.currentText(),
-                                       self.ui.calle2_comboBox.currentText())
+        try:
+            if self.ui.altura_spinBox.value():
+                coordenadas = geocodificar(self.ui.calle1_comboBox.currentText(),
+                                           self.ui.calle2_comboBox.currentText(),
+                                           self.ui.altura_spinBox.value())
+            else:
+                coordenadas = geocodificar(self.ui.calle1_comboBox.currentText(),
+                                           self.ui.calle2_comboBox.currentText())
 
-        self.ui.latitud_doubleSpinBox.setValue(coordenadas['lat'])
-        self.ui.longitud_doubleSpinBox.setValue(coordenadas['lng'])
+            self.ui.latitud_doubleSpinBox.setValue(coordenadas['lat'])
+            self.ui.longitud_doubleSpinBox.setValue(coordenadas['lng'])
+        except requests.exceptions.ConnectionError as e:
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Critical)
+            msg.setDetailedText(str(e))
+            msg.setText('Fallo')
+            msg.exec_()
 
     def add_data_hechos(self):
 
