@@ -8,6 +8,7 @@ from PyQt4.QtGui import QMessageBox
 from sqlalchemy import exc
 import requests
 from requests import exceptions
+# PRUEBA CLONE
 
 
 class FormularioFeu(QtGui.QDialog):
