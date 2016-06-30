@@ -1,0 +1,10 @@
+hechos
+- comisaria
+
+participantes
+- Modelo
+- Dominio
+
+victimas
+- dni
+- nombre
