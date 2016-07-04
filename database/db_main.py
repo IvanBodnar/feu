@@ -1,3 +1,4 @@
+
 import json
 from sqlalchemy import (create_engine, Column, Integer, String, Date, Time, Float,
                         Text, ForeignKey, func)
@@ -5,10 +6,13 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from externo.datos import *
 
+
 base_dir = os.path.dirname((os.path.abspath(__file__)))
 
-with open('{}/config.json'.format(base_dir)) as fh:
+with open('config.json') as fh:
     db_string = json.loads(fh.read())['db_string']
+
+#combo = ListasCombobox()
 
 engine = create_engine(db_string)
 

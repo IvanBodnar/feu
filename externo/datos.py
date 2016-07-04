@@ -7,9 +7,9 @@ import os.path
 class ListasCombobox:
     def __init__(self):
         base_dir = os.path.dirname((os.path.abspath(__file__)))
-        csv_file = '{}/datos_app.csv'.format(base_dir)
+        csv_file = 'datos_app.csv'
 
-        with open(csv_file) as fh:
+        with open(csv_file, encoding='utf-8') as fh:
             self.reader = csv.DictReader(fh)
             self.datos_externos = [x for x in self.reader]
 
