@@ -1,6 +1,6 @@
 import sys
 import os
-sys.path.insert(0, os.path.abspath('..'))
+#sys.path.insert(0, os.path.abspath('..'))
 from designer.gui_feu import *
 from database.db_main import *
 from database.db_add_data import *
@@ -22,6 +22,7 @@ class FormularioFeu(QtGui.QDialog):
             engine.connect()
             self.ui.calle1_comboBox.completer().setCompletionMode(QtGui.QCompleter.PopupCompletion)
             self.ui.calle2_comboBox.completer().setCompletionMode(QtGui.QCompleter.PopupCompletion)
+            self.ui.fecha_dateEdit.setDate(QtCore.QDate.currentDate())
 
             QtCore.QObject.connect(self.ui.addHecho_pushButton,
                                    QtCore.SIGNAL('clicked()'),

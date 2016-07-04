@@ -19,7 +19,7 @@ engine = create_engine(db_string)
 Base = declarative_base()
 Session = sessionmaker(bind=engine)
 session = Session()
-print('conectado')
+
 
 
 # Contiene los datos relacionados al hecho
@@ -28,7 +28,7 @@ class Hechos(Base):
 
     id_hecho = Column(Integer(), primary_key=True)
     fecha = Column(Date())
-    hora = Column(Time(timezone=True))
+    hora = Column(Time())
     calle1 = Column(String(100))
     calle2 = Column(String(100))
     altura_calle = Column(Integer())
@@ -40,9 +40,11 @@ class Hechos(Base):
     total_obitos = Column(Integer())
     tipo_colision = Column(String(30))
     entidad_instructora = Column(String(30))
+    comisaria = Column(Integer())
     longitud = Column(Float(), default=None)
     latitud = Column(Float(), default=None)
     observaciones = Column(Text())
+    id_dgc = Column(Integer())
 
 
 # Contiene los participantes (vehículos, peatones, objetos fijos)
@@ -53,6 +55,8 @@ class Participantes(Base):
     id_hecho = Column(Integer(), ForeignKey('hechos.id_hecho'))
     tipo_participante = Column(String(30))
     marca_participante = Column(String(50))
+    modelo = Column(String(70))
+    dominio = Column(String(30))
 
 
 # Contiene las víctimas asociadas a cada hecho
@@ -64,6 +68,9 @@ class Victimas(Base):
     sexo = Column(String(5))
     edad = Column(Integer())
     rol = Column(String(30))
+    dni = Column(Integer())
+    apellido = Column(String(50))
+    nombre = Column(String(50))
 
 
 # Importar desde la terminal para crear todas las tablas
