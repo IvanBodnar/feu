@@ -73,6 +73,7 @@ class FormularioFeu(QtGui.QDialog):
         self.ui.marcaParticipante_comboBox.addItems(lista_combobox.get_list('marca_participante'))
         self.ui.sexo_comboBox.addItems(lista_combobox.get_list('sexo'))
         self.ui.rol_comboBox.addItems(lista_combobox.get_list('rol'))
+        self.ui.modeloParticipante_comboBox.addItems(lista_combobox.get_list('modelo_participante'))
 
     def clear_form_hechos(self):
         self.ui.calle1_comboBox.clearEditText()
@@ -90,6 +91,7 @@ class FormularioFeu(QtGui.QDialog):
     def clear_form_participantes(self):
         self.ui.tipoParticipante_comboBox.setCurrentIndex(0)
         self.ui.marcaParticipante_comboBox.setCurrentIndex(0)
+        self.ui.modeloParticipante_comboBox.setCurrentIndex(0)
 
     def clear_form_victimas(self):
         self.ui.sexo_comboBox.setCurrentIndex(0)
@@ -142,7 +144,8 @@ class FormularioFeu(QtGui.QDialog):
             entidad_instructora=self.ui.entidadInstructora_comboBox.currentText(),
             longitud=long,
             latitud=lat,
-            observaciones=self.ui.observaciones_plainTextEdit.toPlainText()
+            observaciones=self.ui.observaciones_plainTextEdit.toPlainText(),
+            id_dgc=self.ui.idDgc_spinBox.value()
         )
 
         agregar = AddData(table=table)
@@ -157,8 +160,10 @@ class FormularioFeu(QtGui.QDialog):
 
         table = Participantes(
             id_hecho=self.ui.idHecho_spinBox.value(),
-            tipo_participante=self.ui.tipoParticipante_comboBox.currentText(),
-            marca_participante=self.ui.marcaParticipante_comboBox.currentText()
+            tipo=self.ui.tipoParticipante_comboBox.currentText(),
+            marca=self.ui.marcaParticipante_comboBox.currentText(),
+            modelo=self.ui.modeloParticipante_comboBox.currentText(),
+            dominio=self.ui.dominioParticipante_lineEdit.text()
         )
 
         agregar = AddData(table=table)
@@ -173,7 +178,10 @@ class FormularioFeu(QtGui.QDialog):
             id_hecho=self.ui.idHecho_victimas_spinBox.value(),
             sexo=self.ui.sexo_comboBox.currentText(),
             edad=self.ui.edad_spinBox.value(),
-            rol=self.ui.rol_comboBox.currentText()
+            rol=self.ui.rol_comboBox.currentText(),
+            dni=self.ui.dni_spinBox.value(),
+            apellido=self.ui.apellido_lineEdit.text(),
+            nombre=self.ui.nombre_lineEdit.text()
         )
 
         agregar = AddData(table=table)

@@ -53,8 +53,8 @@ class Participantes(Base):
 
     id_participante = Column(Integer(), primary_key=True)
     id_hecho = Column(Integer(), ForeignKey('hechos.id_hecho'))
-    tipo_participante = Column(String(30))
-    marca_participante = Column(String(50))
+    tipo = Column(String(30))
+    marca = Column(String(50))
     modelo = Column(String(70))
     dominio = Column(String(30))
 
