@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>506</width>
-    <height>705</height>
+    <width>548</width>
+    <height>760</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -611,6 +611,9 @@
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
+              <property name="editable">
+               <bool>true</bool>
+              </property>
              </widget>
             </item>
             <item>
@@ -647,6 +650,9 @@
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
+              </property>
+              <property name="editable">
+               <bool>true</bool>
               </property>
              </widget>
             </item>

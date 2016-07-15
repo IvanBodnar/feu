@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:\Users\ibodnar\feu\feu\designer\gui_feu.ui'
+# Form implementation generated from reading ui file 'designer\gui_feu.ui'
 #
 # Created by: PyQt4 UI code generator 4.11.4
 #
@@ -25,7 +25,7 @@ except AttributeError:
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName(_fromUtf8("Dialog"))
-        Dialog.resize(506, 705)
+        Dialog.resize(548, 760)
         self.verticalLayout = QtGui.QVBoxLayout(Dialog)
         self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
         self.tabWidget = QtGui.QTabWidget(Dialog)
@@ -346,6 +346,7 @@ class Ui_Dialog(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.marcaParticipante_comboBox.sizePolicy().hasHeightForWidth())
         self.marcaParticipante_comboBox.setSizePolicy(sizePolicy)
+        self.marcaParticipante_comboBox.setEditable(True)
         self.marcaParticipante_comboBox.setObjectName(_fromUtf8("marcaParticipante_comboBox"))
         self.horizontalLayout_9.addWidget(self.marcaParticipante_comboBox)
         spacerItem9 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
@@ -362,6 +363,7 @@ class Ui_Dialog(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.modeloParticipante_comboBox.sizePolicy().hasHeightForWidth())
         self.modeloParticipante_comboBox.setSizePolicy(sizePolicy)
+        self.modeloParticipante_comboBox.setEditable(True)
         self.modeloParticipante_comboBox.setObjectName(_fromUtf8("modeloParticipante_comboBox"))
         self.horizontalLayout_15.addWidget(self.modeloParticipante_comboBox)
         spacerItem10 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
@@ -564,14 +566,4 @@ class Ui_Dialog(object):
         self.clearVictima_pushButton.setText(_translate("Dialog", "Limpiar", None))
         self.addVictima_pushButton.setText(_translate("Dialog", "Agregar Dato", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("Dialog", "Víctimas", None))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtGui.QApplication(sys.argv)
-    Dialog = QtGui.QDialog()
-    ui = Ui_Dialog()
-    ui.setupUi(Dialog)
-    Dialog.show()
-    sys.exit(app.exec_())
 
