@@ -3,6 +3,7 @@ import json
 from sqlalchemy import (create_engine, Column, Integer, String, Date, Time, Float,
                         Text, ForeignKey, func, CheckConstraint)
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.orm import sessionmaker
 from externo.datos import *
 
@@ -38,8 +39,8 @@ class Hechos(Base):
     caracteristica_calle2 = Column(String(30))
     lugar_via_publica = Column(String(30))
     tiempo = Column(String(30))
-    via_dividida_por = Column(String(30))
-    prioridad_regida_por = Column(String(30))
+    via_dividida_por = Column(ARRAY(String(30)))
+    prioridad_regulada_por = Column(ARRAY(String(30)))
     total_heridos = Column(Integer())
     total_obitos = Column(Integer())
     entidad_instructora = Column(String(30))

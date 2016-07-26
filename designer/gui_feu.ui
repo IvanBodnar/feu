@@ -493,7 +493,7 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_22">
          <item>
-          <widget class="QGroupBox" name="groupBox_12">
+          <widget class="QGroupBox" name="viaDivididaPor_groupBox">
            <property name="title">
             <string>Via Dividida por:</string>
            </property>
@@ -537,10 +537,75 @@
           </widget>
          </item>
          <item>
-          <widget class="QGroupBox" name="groupBox_13">
+          <widget class="QGroupBox" name="prioridadReguladaPor_groupBox">
            <property name="title">
             <string>Prioridad Regulada Por:</string>
            </property>
+           <widget class="QCheckBox" name="policia_checkBox">
+            <property name="geometry">
+             <rect>
+              <x>11</x>
+              <y>21</y>
+              <width>67</width>
+              <height>22</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Policia</string>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="semaforo_checkBox">
+            <property name="geometry">
+             <rect>
+              <x>11</x>
+              <y>49</y>
+              <width>86</width>
+              <height>22</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Semaforo</string>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="senalPare_checkBox">
+            <property name="geometry">
+             <rect>
+              <x>11</x>
+              <y>77</y>
+              <width>91</width>
+              <height>22</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Señal Pare</string>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="senalCeda_checkBox">
+            <property name="geometry">
+             <rect>
+              <x>11</x>
+              <y>105</y>
+              <width>137</width>
+              <height>22</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Señal Ceda el Paso</string>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="marcaVial_checkBox">
+            <property name="geometry">
+             <rect>
+              <x>11</x>
+              <y>133</y>
+              <width>90</width>
+              <height>22</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Marca Vial</string>
+            </property>
+           </widget>
            <widget class="QCheckBox" name="pasoPeatonal_checkBox">
             <property name="geometry">
              <rect>
@@ -579,53 +644,6 @@
             <property name="text">
              <string>Ninguna</string>
             </property>
-           </widget>
-           <widget class="QWidget" name="">
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>20</y>
-              <width>139</width>
-              <height>136</height>
-             </rect>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_11">
-             <item>
-              <widget class="QCheckBox" name="policia_checkBox">
-               <property name="text">
-                <string>Policia</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QCheckBox" name="semaforo_checkBox">
-               <property name="text">
-                <string>Semaforo</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QCheckBox" name="senalPare_checkBox">
-               <property name="text">
-                <string>Señal Pare</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QCheckBox" name="senalCeda_checkBox">
-               <property name="text">
-                <string>Señal Ceda el Paso</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QCheckBox" name="marcaVial_checkBox">
-               <property name="text">
-                <string>Marca Vial</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
            </widget>
           </widget>
          </item>

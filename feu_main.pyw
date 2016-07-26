@@ -9,7 +9,7 @@ from externo.geo import *
 from PyQt4.QtGui import QMessageBox
 from sqlalchemy import exc
 import requests
-from requests import exceptions
+from helpers import check_boxes
 
 
 class FormularioFeu(QtGui.QDialog):
@@ -45,6 +45,7 @@ class FormularioFeu(QtGui.QDialog):
             QtCore.QObject.connect(self.ui.clearVictima_pushButton,
                                    QtCore.SIGNAL('clicked()'),
                                    self.clear_form_victimas)
+
 
             self.populate_combobox()
             if maxima_id():
@@ -128,6 +129,9 @@ class FormularioFeu(QtGui.QDialog):
 
         print(long, lat)
 
+        via_dividida_list = check_boxes(self.ui.viaDivididaPor_groupBox.children())
+        prioridad_regulada_list = check_boxes(self.ui.prioridadReguladaPor_groupBox.children())
+
         table = Hechos(  # id_hecho='cosa', #PARA TESTEAR
             fecha=self.ui.fecha_dateEdit.date().toPyDate(),
             hora=self.ui.hora_timeEdit.time().toString(),
@@ -136,13 +140,18 @@ class FormularioFeu(QtGui.QDialog):
             tipo_calle1=self.ui.tipoArteria1_comboBox.currentText(),
             tipo_calle2=self.ui.tipoArteria2_comboBox.currentText(),
             altura_calle=self.ui.altura_spinBox.value(),
+            lugar_via_publica=self.ui.lugarVia_comboBox.currentText(),
+            tiempo=self.ui.tiempo_comboBox.currentText(),
+            via_dividida_por=via_dividida_list,
+            prioridad_regulada_por=prioridad_regulada_list,
             total_heridos=self.ui.totalHeridos_spinBox.value(),
             total_obitos=self.ui.totalObitos_spinBox.value(),
             entidad_instructora=self.ui.entidadInstructora_comboBox.currentText(),
             longitud=long,
             latitud=lat,
             observaciones=self.ui.observaciones_plainTextEdit.toPlainText(),
-            id_dgc=self.ui.idDgc_spinBox.value()
+            id_dgc=self.ui.idDgc_spinBox.value(),
+            sumario=self.ui.sumario_spinBox.value()
         )
 
         agregar = AddData(table=table)
