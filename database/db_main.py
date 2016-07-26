@@ -38,7 +38,6 @@ class Hechos(Base):
     caracteristica_calle2 = Column(String(30))
     total_heridos = Column(Integer())
     total_obitos = Column(Integer())
-    tipo_colision = Column(String(30))
     entidad_instructora = Column(String(30))
     comisaria = Column(Integer())
     longitud = Column(Float(), default=None)

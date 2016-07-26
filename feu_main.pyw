@@ -67,7 +67,6 @@ class FormularioFeu(QtGui.QDialog):
         self.ui.calle2_comboBox.addItems(lista_combobox.get_list('calles'))
         self.ui.tipoArteria1_comboBox.addItems(lista_combobox.get_list('tipo_calle'))
         self.ui.tipoArteria2_comboBox.addItems(lista_combobox.get_list('tipo_calle'))
-        self.ui.tipoColision_comboBox.addItems(lista_combobox.get_list('tipo_colision'))
         self.ui.entidadInstructora_comboBox.addItems(lista_combobox.get_list('entidad_instructora'))
         self.ui.tipoParticipante_comboBox.addItems(lista_combobox.get_list('tipo_participante'))
         self.ui.marcaParticipante_comboBox.addItems(lista_combobox.get_list('marca_participante'))
@@ -80,7 +79,6 @@ class FormularioFeu(QtGui.QDialog):
         self.ui.calle2_comboBox.clearEditText()
         self.ui.tipoArteria1_comboBox.setCurrentIndex(0)
         self.ui.tipoArteria2_comboBox.setCurrentIndex(0)
-        self.ui.tipoColision_comboBox.setCurrentIndex(0)
         self.ui.entidadInstructora_comboBox.setCurrentIndex(0)
         self.ui.totalHeridos_spinBox.setValue(0)
         self.ui.totalObitos_spinBox.setValue(0)
@@ -138,7 +136,6 @@ class FormularioFeu(QtGui.QDialog):
             tipo_calle1=self.ui.tipoArteria1_comboBox.currentText(),
             tipo_calle2=self.ui.tipoArteria2_comboBox.currentText(),
             altura_calle=self.ui.altura_spinBox.value(),
-            tipo_colision=self.ui.tipoColision_comboBox.currentText(),
             total_heridos=self.ui.totalHeridos_spinBox.value(),
             total_obitos=self.ui.totalObitos_spinBox.value(),
             entidad_instructora=self.ui.entidadInstructora_comboBox.currentText(),
