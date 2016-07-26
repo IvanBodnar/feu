@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'designer\gui_feu.ui'
+# Form implementation generated from reading ui file 'designer/gui_feu.ui'
 #
-# Created by: PyQt4 UI code generator 4.11.4
+# Created: Tue Jul 26 11:32:47 2016
+#      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -308,6 +309,13 @@ class Ui_Dialog(object):
         self.idHecho_spinBox = QtGui.QSpinBox(self.groupBox)
         self.idHecho_spinBox.setObjectName(_fromUtf8("idHecho_spinBox"))
         self.horizontalLayout_2.addWidget(self.idHecho_spinBox)
+        self.l1 = QtGui.QLabel(self.groupBox)
+        self.l1.setObjectName(_fromUtf8("l1"))
+        self.horizontalLayout_2.addWidget(self.l1)
+        self.numeroParticipantePar_spinBox = QtGui.QSpinBox(self.groupBox)
+        self.numeroParticipantePar_spinBox.setMaximum(15)
+        self.numeroParticipantePar_spinBox.setObjectName(_fromUtf8("numeroParticipantePar_spinBox"))
+        self.horizontalLayout_2.addWidget(self.numeroParticipantePar_spinBox)
         spacerItem7 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.horizontalLayout_2.addItem(spacerItem7)
         self.verticalLayout_5.addLayout(self.horizontalLayout_2)
@@ -394,9 +402,6 @@ class Ui_Dialog(object):
         self.verticalLayout_6.addLayout(self.horizontalLayout_8)
         spacerItem13 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
         self.verticalLayout_6.addItem(spacerItem13)
-        self.groupBox.raise_()
-        self.groupBox_2.raise_()
-        self.groupBox_3.raise_()
         self.tabWidget.addTab(self.participantes_tab, _fromUtf8(""))
         self.tab = QtGui.QWidget()
         self.tab.setObjectName(_fromUtf8("tab"))
@@ -420,6 +425,13 @@ class Ui_Dialog(object):
         self.idHecho_victimas_spinBox = QtGui.QSpinBox(self.groupBox_6)
         self.idHecho_victimas_spinBox.setObjectName(_fromUtf8("idHecho_victimas_spinBox"))
         self.horizontalLayout_10.addWidget(self.idHecho_victimas_spinBox)
+        self.l = QtGui.QLabel(self.groupBox_6)
+        self.l.setObjectName(_fromUtf8("l"))
+        self.horizontalLayout_10.addWidget(self.l)
+        self.numeroParticipanteVic_spinBox = QtGui.QSpinBox(self.groupBox_6)
+        self.numeroParticipanteVic_spinBox.setMaximum(15)
+        self.numeroParticipanteVic_spinBox.setObjectName(_fromUtf8("numeroParticipanteVic_spinBox"))
+        self.horizontalLayout_10.addWidget(self.numeroParticipanteVic_spinBox)
         spacerItem14 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.horizontalLayout_10.addItem(spacerItem14)
         self.horizontalLayout_19.addLayout(self.horizontalLayout_10)
@@ -549,6 +561,7 @@ class Ui_Dialog(object):
         self.addHecho_pushButton.setText(_translate("Dialog", "Agregar Dato", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.hechos_tab), _translate("Dialog", "Hechos", None))
         self.label_3.setText(_translate("Dialog", "Id del Hecho:", None))
+        self.l1.setText(_translate("Dialog", "Numero de Participante: ", None))
         self.label_15.setText(_translate("Dialog", "Tipo de Participante:", None))
         self.label_16.setText(_translate("Dialog", "Marca:  ", None))
         self.label_22.setText(_translate("Dialog", "Modelo: ", None))
@@ -557,6 +570,7 @@ class Ui_Dialog(object):
         self.addParticipante_pushButton.setText(_translate("Dialog", "Agregar Dato", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.participantes_tab), _translate("Dialog", "Participantes", None))
         self.label_17.setText(_translate("Dialog", "Id del Hecho:", None))
+        self.l.setText(_translate("Dialog", "Numero de Participante: ", None))
         self.label_18.setText(_translate("Dialog", "Sexo:", None))
         self.label_19.setText(_translate("Dialog", "Edad:", None))
         self.label_20.setText(_translate("Dialog", "Rol:", None))

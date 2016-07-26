@@ -1,0 +1,26 @@
+- alembic init alembic
+
+- En alembic.ini setear la url de la db:
+sqlalchemy.url = postgresql://observatorio:observatorio@localhost/feu
+
+- En env.py agregar a path el modulo actual (env.py) para despues importar Base desde
+el modulo donde se maneja la db:
+import sys
+sys.path.insert(0, '.')
+from database.db_main import Base
+
+- Despues agregar en env.py:
+target_metadata = Base.metadata
+
+-Probar si no hay error con:
+alembic current
+
+- Crear la revision:
+alembic revision --autogenerate -m 'Mensaje'
+
+- Se crea la revision. Tener cuidado porque si hay tabla spatial_ref_sys en la
+db la va a querer borrar en la funcion upgrade. Borrar o comentar y agregarle
+pass a la funcion.
+
+- Hacer upgrade para agregar los cambios a la db
+alembic upgrade head

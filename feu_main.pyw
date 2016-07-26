@@ -163,7 +163,8 @@ class FormularioFeu(QtGui.QDialog):
             tipo=self.ui.tipoParticipante_comboBox.currentText(),
             marca=self.ui.marcaParticipante_comboBox.currentText(),
             modelo=self.ui.modeloParticipante_comboBox.currentText(),
-            dominio=self.ui.dominioParticipante_lineEdit.text()
+            dominio=self.ui.dominioParticipante_lineEdit.text(),
+            numero_participante=self.ui.numeroParticipantePar_spinBox.value()
         )
 
         agregar = AddData(table=table)
@@ -181,7 +182,8 @@ class FormularioFeu(QtGui.QDialog):
             rol=self.ui.rol_comboBox.currentText(),
             dni=self.ui.dni_spinBox.value(),
             apellido=self.ui.apellido_lineEdit.text(),
-            nombre=self.ui.nombre_lineEdit.text()
+            nombre=self.ui.nombre_lineEdit.text(),
+            numero_participante=self.ui.numeroParticipanteVic_spinBox.value()
         )
 
         agregar = AddData(table=table)

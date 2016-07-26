@@ -532,6 +532,20 @@
              <widget class="QSpinBox" name="idHecho_spinBox"/>
             </item>
             <item>
+             <widget class="QLabel" name="l1">
+              <property name="text">
+               <string>Numero de Participante: </string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="numeroParticipantePar_spinBox">
+              <property name="maximum">
+               <number>15</number>
+              </property>
+             </widget>
+            </item>
+            <item>
              <spacer name="horizontalSpacer_3">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
@@ -778,6 +792,20 @@
             </item>
             <item>
              <widget class="QSpinBox" name="idHecho_victimas_spinBox"/>
+            </item>
+            <item>
+             <widget class="QLabel" name="l">
+              <property name="text">
+               <string>Numero de Participante: </string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="numeroParticipanteVic_spinBox">
+              <property name="maximum">
+               <number>15</number>
+              </property>
+             </widget>
             </item>
             <item>
              <spacer name="horizontalSpacer_6">

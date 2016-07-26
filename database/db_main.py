@@ -1,7 +1,7 @@
 
 import json
 from sqlalchemy import (create_engine, Column, Integer, String, Date, Time, Float,
-                        Text, ForeignKey, func)
+                        Text, ForeignKey, func, CheckConstraint)
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from externo.datos import *
@@ -57,6 +57,11 @@ class Participantes(Base):
     marca = Column(String(50))
     modelo = Column(String(70))
     dominio = Column(String(30))
+    numero_participante = Column(Integer())
+
+
+    CheckConstraint('numero_participante >= 0', name='check_num_part')
+
 
 
 # Contiene las víctimas asociadas a cada hecho
@@ -71,6 +76,11 @@ class Victimas(Base):
     dni = Column(Integer())
     apellido = Column(String(50))
     nombre = Column(String(50))
+    numero_participante = Column(Integer())
+
+
+    CheckConstraint('numero_participante >= 0', name='check_num_part')
+
 
 
 # Importar desde la terminal para crear todas las tablas

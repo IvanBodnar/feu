@@ -1,0 +1,13 @@
+
+No module named cx_Freeze:
+http://stackoverflow.com/questions/13906343/installing-using-cx-freeze
+
+No conecta tableview:
+copiar la carpeta de sqldrivers dentro de la carpeta build
+https://stackoverflow.com/questions/21791868/cx-freeze-qodbc-driver-not-loaded#
+
+
+--------
+pyuic4 -o designer/gui_feu.py designer/gui_feu.ui
+--------
+
