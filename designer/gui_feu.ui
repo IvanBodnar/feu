@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>548</width>
-    <height>760</height>
+    <width>623</width>
+    <height>873</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,7 +23,7 @@
       <attribute name="title">
        <string>Hechos</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_10">
+      <layout class="QVBoxLayout" name="verticalLayout_12">
        <item>
         <widget class="QGroupBox" name="groupBox_8">
          <property name="title">
@@ -55,6 +55,16 @@
             </item>
             <item>
              <widget class="QTimeEdit" name="hora_timeEdit"/>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_10">
+              <property name="text">
+               <string>Sumario: </string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="sumario_spinBox"/>
             </item>
            </layout>
           </item>
@@ -172,7 +182,7 @@
             <item>
              <widget class="QSpinBox" name="altura_spinBox">
               <property name="sizePolicy">
-               <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
@@ -183,9 +193,78 @@
              </widget>
             </item>
             <item>
+             <widget class="QLabel" name="label_21">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Minimum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Lugar de la Via: </string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="lugarVia_comboBox">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Minimum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+             </widget>
+            </item>
+            <item>
              <spacer name="horizontalSpacer">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Minimum</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <item>
+             <widget class="QLabel" name="label_28">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Tiempo: </string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="tiempo_comboBox">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_9">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Minimum</enum>
               </property>
               <property name="sizeHint" stdset="0">
                <size>
@@ -410,6 +489,147 @@
           </item>
          </layout>
         </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_22">
+         <item>
+          <widget class="QGroupBox" name="groupBox_12">
+           <property name="title">
+            <string>Via Dividida por:</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_10">
+            <item>
+             <widget class="QCheckBox" name="hormigon_checkBox">
+              <property name="text">
+               <string>Barrera Hormigon</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="guardarrail_checkBox">
+              <property name="text">
+               <string>Guardarrail</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="cordonDivisorio_checkBox">
+              <property name="text">
+               <string>Cordon Divisorio</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="lineaDivisoriaPintada_checkBox">
+              <property name="text">
+               <string>Linea Divisoria Pintada</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="ningunoDivision_checkBox">
+              <property name="text">
+               <string>Ninguno</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_13">
+           <property name="title">
+            <string>Prioridad Regulada Por:</string>
+           </property>
+           <widget class="QCheckBox" name="pasoPeatonal_checkBox">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>170</y>
+              <width>121</width>
+              <height>22</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Paso Peatonal</string>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="otraSenal_checkBox">
+            <property name="geometry">
+             <rect>
+              <x>150</x>
+              <y>30</y>
+              <width>91</width>
+              <height>22</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Otra Señal</string>
+            </property>
+           </widget>
+           <widget class="QCheckBox" name="ningunoPrioridad_checkBox">
+            <property name="geometry">
+             <rect>
+              <x>150</x>
+              <y>60</y>
+              <width>79</width>
+              <height>22</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Ninguna</string>
+            </property>
+           </widget>
+           <widget class="QWidget" name="">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>20</y>
+              <width>139</width>
+              <height>136</height>
+             </rect>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_11">
+             <item>
+              <widget class="QCheckBox" name="policia_checkBox">
+               <property name="text">
+                <string>Policia</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="semaforo_checkBox">
+               <property name="text">
+                <string>Semaforo</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="senalPare_checkBox">
+               <property name="text">
+                <string>Señal Pare</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="senalCeda_checkBox">
+               <property name="text">
+                <string>Señal Ceda el Paso</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="marcaVial_checkBox">
+               <property name="text">
+                <string>Marca Vial</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+         </item>
+        </layout>
        </item>
        <item>
         <widget class="QGroupBox" name="groupBox_11">

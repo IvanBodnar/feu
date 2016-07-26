@@ -3,11 +3,11 @@ DON ANSELMO AIETA,postgresql://observatorio:observatorio@10.68.4.100/feu,calle,m
 ACASSUSO,,avenida,ciclovia,homicidio,metropolitana,motocicleta,chevrolet,astra,f,conductor
 AEROLINEAS ARGENTINAS,,autopista,carril exclusivo,,gendarmeria,peaton,fiat,siena,,acompañante
 ACEVEDO,,otros,calle de convivencia,,prefectura,camion,volkswagen,gol,,pasajero
-ARMENIA,,,otros,,otros,camioneta,peugeot,504,,
-"ACEVEDO, EDUARDO",,,,,,transporte de pasajeros,,,,
-"IBARBOUROU, JUANA DE",,,,,,bicicleta,,,,
-ACONCAGUA,,,,,,,,,,
-"ACOSTA, MARIANO",,,,,,,,,,
+ARMENIA,,,otros,,same,camioneta,peugeot,504,,
+"ACEVEDO, EDUARDO",,,,,hospitales,transporte de pasajeros,,,,
+"IBARBOUROU, JUANA DE",,,,,medios,bicicleta,,,,
+ACONCAGUA,,,,,pfa-same,,,,,
+"ACOSTA, MARIANO",,,,,otros,,,,,
 "ACOSTA, MARIANO AV.",,,,,,,,,,
 ACOYTE,,,,,,,,,,
 ACOYTE AV.,,,,,,,,,,
