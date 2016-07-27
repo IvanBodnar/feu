@@ -24,3 +24,6 @@ pass a la funcion.
 
 - Hacer upgrade para agregar los cambios a la db
 alembic upgrade head
+
+- Si tira 'target database is not up to date':
+Hacer alembic stamp head. Le indica que el actual estado es el correcto.
