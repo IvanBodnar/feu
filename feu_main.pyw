@@ -155,7 +155,7 @@ class FormularioFeu(QtGui.QDialog):
         )
 
         agregar = AddData(table=table)
-        agregar = agregar.add()
+        agregar.add()
 
         if agregar:
             self.ui.idHecho_spinBox.setValue(maxima_id())

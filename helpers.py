@@ -7,7 +7,7 @@ def check_boxes(lista):
     for check in lista:
         try:
             if check.isChecked():
-                result.append(check.text())
+                result.append(check.text().lower())
         except:
             pass
     return result
