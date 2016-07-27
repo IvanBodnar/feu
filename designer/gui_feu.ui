@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>623</width>
-    <height>873</height>
+    <width>667</width>
+    <height>911</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <layout class="QHBoxLayout" name="horizontalLayout_24">
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
@@ -1014,6 +1014,42 @@
             </item>
             <item>
              <spacer name="horizontalSpacer_6">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_12">
+         <property name="title">
+          <string/>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_23">
+            <item>
+             <widget class="QLabel" name="label_29">
+              <property name="text">
+               <string>Causa: </string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="causa_comboBox"/>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_19">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>

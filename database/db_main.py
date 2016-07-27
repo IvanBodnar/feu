@@ -75,6 +75,7 @@ class Victimas(Base):
 
     id_victima = Column(Integer(), primary_key=True)
     id_hecho = Column(Integer(), ForeignKey('hechos.id_hecho'))
+    causa = Column(String(20))
     sexo = Column(String(5))
     edad = Column(Integer())
     rol = Column(String(30))

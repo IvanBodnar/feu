@@ -74,6 +74,7 @@ class FormularioFeu(QtGui.QDialog):
         self.ui.sexo_comboBox.addItems(lista_combobox.get_list('sexo'))
         self.ui.rol_comboBox.addItems(lista_combobox.get_list('rol'))
         self.ui.modeloParticipante_comboBox.addItems(lista_combobox.get_list('modelo_participante'))
+        self.ui.causa_comboBox.addItems(lista_combobox.get_list('causa'))
 
     def clear_form_hechos(self):
         self.ui.calle1_comboBox.clearEditText()
@@ -183,6 +184,7 @@ class FormularioFeu(QtGui.QDialog):
 
         table = Victimas(
             id_hecho=self.ui.idHecho_victimas_spinBox.value(),
+            causa=self.ui.causa_comboBox.currentText(),
             sexo=self.ui.sexo_comboBox.currentText(),
             edad=self.ui.edad_spinBox.value(),
             rol=self.ui.rol_comboBox.currentText(),
