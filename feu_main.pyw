@@ -22,6 +22,8 @@ class FormularioFeu(QtGui.QDialog):
             engine.connect()
             self.ui.calle1_comboBox.completer().setCompletionMode(QtGui.QCompleter.PopupCompletion)
             self.ui.calle2_comboBox.completer().setCompletionMode(QtGui.QCompleter.PopupCompletion)
+            self.ui.marcaParticipante_comboBox.completer().setCompletionMode(QtGui.QCompleter.PopupCompletion)
+            self.ui.modeloParticipante_comboBox.completer().setCompletionMode(QtGui.QCompleter.PopupCompletion)
             self.ui.fecha_dateEdit.setDate(QtCore.QDate.currentDate())
 
             QtCore.QObject.connect(self.ui.addHecho_pushButton,

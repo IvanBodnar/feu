@@ -1221,7 +1221,7 @@
              </sizepolicy>
             </property>
             <property name="minimum">
-             <number>1000000</number>
+             <number>0</number>
             </property>
             <property name="maximum">
              <number>500000000</number>

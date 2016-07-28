@@ -618,7 +618,7 @@ class Ui_Dialog(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.dni_spinBox.sizePolicy().hasHeightForWidth())
         self.dni_spinBox.setSizePolicy(sizePolicy)
-        self.dni_spinBox.setMinimum(1000000)
+        self.dni_spinBox.setMinimum(0)
         self.dni_spinBox.setMaximum(500000000)
         self.dni_spinBox.setObjectName(_fromUtf8("dni_spinBox"))
         self.horizontalLayout_20.addWidget(self.dni_spinBox)
