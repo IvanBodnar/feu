@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>667</width>
+    <width>611</width>
     <height>911</height>
    </rect>
   </property>
@@ -64,7 +64,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QSpinBox" name="sumario_spinBox"/>
+             <widget class="QSpinBox" name="sumario_spinBox">
+              <property name="maximum">
+               <number>5000</number>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -182,7 +186,7 @@
             <item>
              <widget class="QSpinBox" name="altura_spinBox">
               <property name="sizePolicy">
-               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
@@ -208,33 +212,13 @@
             <item>
              <widget class="QComboBox" name="lugarVia_comboBox">
               <property name="sizePolicy">
-               <sizepolicy hsizetype="Maximum" vsizetype="Minimum">
+               <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
              </widget>
             </item>
-            <item>
-             <spacer name="horizontalSpacer">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeType">
-               <enum>QSizePolicy::Minimum</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_4">
             <item>
              <widget class="QLabel" name="label_28">
               <property name="sizePolicy">
@@ -251,7 +235,7 @@
             <item>
              <widget class="QComboBox" name="tiempo_comboBox">
               <property name="sizePolicy">
-               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
@@ -259,7 +243,7 @@
              </widget>
             </item>
             <item>
-             <spacer name="horizontalSpacer_9">
+             <spacer name="horizontalSpacer">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>
@@ -462,7 +446,7 @@
             <item>
              <widget class="QSpinBox" name="idDgc_spinBox">
               <property name="sizePolicy">
-               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
