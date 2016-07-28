@@ -921,6 +921,24 @@
         </widget>
        </item>
        <item>
+        <widget class="QGroupBox" name="groupBox_13">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="title">
+          <string>Observaciones</string>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_25">
+          <item>
+           <widget class="QPlainTextEdit" name="observacionesPart_plainTextEdit"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
         <layout class="QHBoxLayout" name="horizontalLayout_8">
          <item>
           <spacer name="horizontalSpacer_4">
@@ -956,10 +974,13 @@
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Minimum</enum>
+         </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>40</height>
+           <height>400</height>
           </size>
          </property>
         </spacer>
@@ -968,12 +989,13 @@
       <zorder>groupBox</zorder>
       <zorder>groupBox_2</zorder>
       <zorder>groupBox_3</zorder>
+      <zorder>groupBox_13</zorder>
      </widget>
      <widget class="QWidget" name="tab">
       <attribute name="title">
        <string>Víctimas</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_7">
+      <layout class="QVBoxLayout" name="verticalLayout_11">
        <item>
         <widget class="QGroupBox" name="groupBox_6">
          <property name="title">
@@ -1242,6 +1264,18 @@
         </widget>
        </item>
        <item>
+        <widget class="QGroupBox" name="groupBox_14">
+         <property name="title">
+          <string>Observaciones</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_7">
+          <item>
+           <widget class="QPlainTextEdit" name="observacionesVic_plainTextEdit"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
         <layout class="QHBoxLayout" name="horizontalLayout_11">
          <item>
           <spacer name="horizontalSpacer_7">
@@ -1277,10 +1311,13 @@
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Maximum</enum>
+         </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>506</height>
+           <height>200</height>
           </size>
          </property>
         </spacer>

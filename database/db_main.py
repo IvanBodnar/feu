@@ -63,9 +63,7 @@ class Participantes(Base):
     modelo = Column(String(70))
     dominio = Column(String(30))
     numero_participante = Column(Integer())
-
-
-    CheckConstraint('numero_participante >= 0', name='check_num_part')
+    observaciones = Column(Text())
 
 
 
@@ -83,9 +81,7 @@ class Victimas(Base):
     apellido = Column(String(50))
     nombre = Column(String(50))
     numero_participante = Column(Integer())
-
-
-    CheckConstraint('numero_participante >= 0', name='check_num_part')
+    observaciones = Column(Text())
 
 
 
