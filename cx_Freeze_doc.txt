@@ -11,3 +11,6 @@ https://stackoverflow.com/questions/21791868/cx-freeze-qodbc-driver-not-loaded#
 pyuic4 -o designer/gui_feu.py designer/gui_feu.ui
 --------
 
+--------
+python.exe setup.py build
+--------
