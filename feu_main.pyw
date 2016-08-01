@@ -7,6 +7,7 @@ from database.db_add_data import *
 from externo.datos import *
 from externo.geo import *
 from PyQt4.QtGui import QMessageBox
+from PyQt4.QtCore import QTime
 from sqlalchemy import exc
 import requests
 from helpers import check_boxes
@@ -77,28 +78,45 @@ class FormularioFeu(QtGui.QDialog):
         self.ui.rol_comboBox.addItems(lista_combobox.get_list('rol'))
         self.ui.modeloParticipante_comboBox.addItems(lista_combobox.get_list('modelo_participante'))
         self.ui.causa_comboBox.addItems(lista_combobox.get_list('causa'))
+        self.ui.lugarVia_comboBox.addItems(lista_combobox.get_list('lugar_via'))
+        self.ui.tiempo_comboBox.addItems(lista_combobox.get_list('tiempo'))
 
     def clear_form_hechos(self):
         self.ui.calle1_comboBox.clearEditText()
         self.ui.calle2_comboBox.clearEditText()
+        self.ui.hora_timeEdit.setTime(QTime(0, 0, 0))
         self.ui.tipoArteria1_comboBox.setCurrentIndex(0)
         self.ui.tipoArteria2_comboBox.setCurrentIndex(0)
         self.ui.entidadInstructora_comboBox.setCurrentIndex(0)
         self.ui.totalHeridos_spinBox.setValue(0)
         self.ui.totalObitos_spinBox.setValue(0)
+        self.ui.sumario_spinBox.setValue(0)
         self.ui.latitud_doubleSpinBox.setValue(0.00000000)
         self.ui.longitud_doubleSpinBox.setValue(0.00000000)
         self.ui.observaciones_plainTextEdit.clear()
+        self.ui.lugarVia_comboBox.setCurrentIndex(0)
+        self.ui.tiempo_comboBox.setCurrentIndex(0)
+        self.ui.altura_spinBox.setValue(0)
+        self.ui.idDgc_spinBox.setValue(0)
 
     def clear_form_participantes(self):
         self.ui.tipoParticipante_comboBox.setCurrentIndex(0)
         self.ui.marcaParticipante_comboBox.setCurrentIndex(0)
         self.ui.modeloParticipante_comboBox.setCurrentIndex(0)
+        self.ui.numeroParticipantePar_spinBox.setValue(0)
+        self.ui.dominioParticipante_lineEdit.clear()
+        self.ui.observacionesPart_plainTextEdit.clear()
 
     def clear_form_victimas(self):
         self.ui.sexo_comboBox.setCurrentIndex(0)
         self.ui.edad_spinBox.setValue(0)
         self.ui.rol_comboBox.setCurrentIndex(0)
+        self.ui.numeroParticipanteVic_spinBox.setValue(0)
+        self.ui.causa_comboBox.setCurrentIndex(0)
+        self.ui.apellido_lineEdit.clear()
+        self.ui.nombre_lineEdit.clear()
+        self.ui.dni_spinBox.setValue(0)
+        self.ui.observacionesVic_plainTextEdit.clear()
 
     def geocodificar_campos(self):
         try:

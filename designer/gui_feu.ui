@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Observatorio GCBA</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>Escudo_Buenos_Aires.png</normaloff>Escudo_Buenos_Aires.png</iconset>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_24">
    <item>

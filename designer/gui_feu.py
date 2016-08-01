@@ -26,6 +26,9 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName(_fromUtf8("Dialog"))
         Dialog.resize(611, 911)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8("Escudo_Buenos_Aires.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        Dialog.setWindowIcon(icon)
         self.horizontalLayout_24 = QtGui.QHBoxLayout(Dialog)
         self.horizontalLayout_24.setObjectName(_fromUtf8("horizontalLayout_24"))
         self.tabWidget = QtGui.QTabWidget(Dialog)
@@ -654,7 +657,7 @@ class Ui_Dialog(object):
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog", None))
+        Dialog.setWindowTitle(_translate("Dialog", "Observatorio GCBA", None))
         self.label.setText(_translate("Dialog", "Fecha:", None))
         self.label_2.setText(_translate("Dialog", "Hora:", None))
         self.label_10.setText(_translate("Dialog", "Sumario: ", None))
