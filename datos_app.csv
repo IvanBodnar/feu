@@ -1,8 +1,8 @@
 calles,engine,tipo_calle,caracteristica_calle,tipo_siniestro,entidad_instructora,tipo_participante,marca_participante,modelo_participante,sexo,rol,causa,lugar_via,tiempo
 DON ANSELMO AIETA,postgresql://observatorio:observatorio@10.68.4.100/feu,calle,metrobus,lesiones,pfa,automovil,agrale,10,m,peaton,lesiones,recta,bueno
 ACASSUSO,,avenida,ciclovia,homicidio,metropolitana,motocicleta,alfa romeo,100,f,conductor,homicidio,curva,nublado
-AEROLINEAS ARGENTINAS,,autopista,carril exclusivo,,gendarmeria,peaton,andino,1000,,acompañante,,interseccion,llovizna
-ACEVEDO,,otros,calle de convivencia,,prefectura,transporte de carga,appia,10000,,pasajero,,rotonda,lluvia
+AEROLINEAS ARGENTINAS,,autopista,carril exclusivo,,gendarmeria,peaton,andino,1000,,pasajero,,interseccion,llovizna
+ACEVEDO,,otros,calle de convivencia,,prefectura,transporte de carga,appia,10000,,,,rotonda,lluvia
 ARMENIA,,,otros,,same,transporte de pasajeros,aprilia,1001,,,,distribuidor,nieve
 "ACEVEDO, EDUARDO",,,,,hospitales,cuatriciclo,arko,1011,,,,paso a nivel ff.cc.,granizo
 "IBARBOUROU, JUANA DE",,,,,medios,bicicleta,asia towner,102,,,,puente,

@@ -1,8 +1,8 @@
 import requests
 
 # DESCOMENTAR PARA HACER EL EJECUTABLE
-# import os
-# os.environ["REQUESTS_CA_BUNDLE"] = os.path.join(os.getcwd(), "cacert.pem")
+import os
+os.environ["REQUESTS_CA_BUNDLE"] = os.path.join(os.getcwd(), "cacert.pem")
 
 def geocodificar(calle1, calle2, altura=None):
     global address
