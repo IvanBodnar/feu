@@ -1,25 +1,25 @@
 calles,engine,tipo_calle,caracteristica_calle,tipo_siniestro,entidad_instructora,tipo_participante,marca_participante,modelo_participante,sexo,rol,causa,lugar_via,tiempo
-DON ANSELMO AIETA,postgresql://observatorio:observatorio@10.68.4.100/feu,calle,metrobus,lesiones,pfa,automovil,agrale,10,m,peaton,lesiones,recta,bueno
-ACASSUSO,,avenida,ciclovia,homicidio,metropolitana,motocicleta,alfa romeo,100,f,conductor,homicidio,curva,nublado
-AEROLINEAS ARGENTINAS,,autopista,carril exclusivo,,gendarmeria,peaton,andino,1000,,pasajero,,interseccion,llovizna
-ACEVEDO,,otros,calle de convivencia,,prefectura,transporte de carga,appia,10000,,,,rotonda,lluvia
-ARMENIA,,,otros,,same,transporte de pasajeros,aprilia,1001,,,,distribuidor,nieve
-"ACEVEDO, EDUARDO",,,,,hospitales,cuatriciclo,arko,1011,,,,paso a nivel ff.cc.,granizo
-"IBARBOUROU, JUANA DE",,,,,medios,bicicleta,asia towner,102,,,,puente,
-ACONCAGUA,,,,,pfa-same,traccion a sangre,audi,105,,,,otro,
-"ACOSTA, MARIANO",,,,,otros,animal,aurora,105 c,,,,,
-"ACOSTA, MARIANO AV.",,,,,,objeto fijo,avanti,106,,,,,
-ACOYTE,,,,,,maquinaria,avengar,1062,,,,,
-ACOYTE AV.,,,,,,otros,aventon,107,,,,,
-"ACUÑA DE FIGUEROA, FRANCISCO",,,,,,,baccio,11,,,,,
-"ACHA, MARIANO, GRAL.",,,,,,,bajaj,110,,,,,
-ACHALA,,,,,,,bajaj rouser,1100,,,,,
-ACHAVAL,,,,,,,beach,1100 cc,,,,,
-ACHEGA,,,,,,,bedford,1105,,,,,
-ACHIRA,,,,,,,benotto,111,,,,,
-ACHUPALLAS,,,,,,,bentley,1110,,,,,
-AGACES,,,,,,,bera,1112,,,,,
-"AGOTE, LUIS DR.",,,,,,,beretta,1113,,,,,
+DON ANSELMO AIETA,postgresql://observatorio:observatorio@10.68.4.100/feu,calle,metrobus,lesiones,pf,automovil,agrale,10,m,peaton,lesiones,recta,bueno
+ACASSUSO,,avenida,ciclovia,homicidio,pf + same,motocicleta,alfa romeo,100,f,conductor,homicidio,curva,nublado
+AEROLINEAS ARGENTINAS,,autopista,carril exclusivo,,pf + hospitales,peaton,andino,1000,,pasajero,,interseccion,llovizna
+ACEVEDO,,otros,calle de convivencia,,pf + auxilios,transporte de carga,appia,10000,,,,rotonda,lluvia
+ARMENIA,,,otros,,pf + same + hospitales,transporte de pasajeros,aprilia,1001,,,,distribuidor,nieve
+"ACEVEDO, EDUARDO",,,,,pf + same + auxilios,cuatriciclo,arko,1011,,,,paso a nivel ff.cc.,granizo
+"IBARBOUROU, JUANA DE",,,,,pf + hospitales + auxilios,bicicleta,asia towner,102,,,,puente,
+ACONCAGUA,,,,,pf+same+hospitales+auxilios,traccion a sangre,audi,105,,,,otro,
+"ACOSTA, MARIANO",,,,,same,animal,aurora,105 c,,,,,
+"ACOSTA, MARIANO AV.",,,,,same + auxilios,objeto fijo,avanti,106,,,,,
+ACOYTE,,,,,same + hospitales,maquinaria,avengar,1062,,,,,
+ACOYTE AV.,,,,,same + hospitales + auxilios,otros,aventon,107,,,,,
+"ACUÑA DE FIGUEROA, FRANCISCO",,,,,auxilios,,baccio,11,,,,,
+"ACHA, MARIANO, GRAL.",,,,,auxilios + hospitales,,bajaj,110,,,,,
+ACHALA,,,,,auxilios + same + hospitales,,bajaj rouser,1100,,,,,
+ACHAVAL,,,,,hospitales ,,beach,1100 cc,,,,,
+ACHEGA,,,,,medios,,bedford,1105,,,,,
+ACHIRA,,,,,metropolitana,,benotto,111,,,,,
+ACHUPALLAS,,,,,gendarmeria,,bentley,1110,,,,,
+AGACES,,,,,prefectura,,bera,1112,,,,,
+"AGOTE, LUIS DR.",,,,,otros,,beretta,1113,,,,,
 AGOTE PEDRO,,,,,,,betamotor,1114,,,,,
 AGRELO,,,,,,,bianchi,112,,,,,
 "AGUADO, ALEJANDRO M. DE",,,,,,,bmc,1125,,,,,

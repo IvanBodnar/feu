@@ -12,5 +12,5 @@ pyuic4 -o designer/gui_feu.py designer/gui_feu.ui
 --------
 
 --------
-python.exe setup.py build
+python.exe set.py build
 --------
