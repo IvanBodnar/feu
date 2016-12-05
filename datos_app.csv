@@ -1,10 +1,10 @@
 calles,engine,tipo_calle,caracteristica_calle,tipo_siniestro,entidad_instructora,tipo_participante,marca_participante,modelo_participante,sexo,rol,causa,lugar_via,tiempo
-DON ANSELMO AIETA,postgresql://observatorio:observatorio@10.68.4.100/feu,calle,metrobus,lesiones,pf,automovil,agrale,10,m,peaton,lesiones,recta,bueno
-ACASSUSO,,avenida,ciclovia,homicidio,pf + same,motocicleta,alfa romeo,100,f,conductor,homicidio,curva,nublado
-AEROLINEAS ARGENTINAS,,autopista,carril exclusivo,,pf + hospitales,peaton,andino,1000,,pasajero,,interseccion,llovizna
-ACEVEDO,,otros,calle de convivencia,,pf + auxilios,transporte de carga,appia,10000,,,,rotonda,lluvia
-ARMENIA,,,otros,,pf + same + hospitales,transporte de pasajeros,aprilia,1001,,,,distribuidor,nieve
-"ACEVEDO, EDUARDO",,,,,pf + same + auxilios,cuatriciclo,arko,1011,,,,paso a nivel ff.cc.,granizo
+DON ANSELMO AIETA,postgresql://observatorio:observatorio@10.68.4.100/feu,calle,metrobus,lesiones,pf,automovil,agrale,10,m,peaton,ileso,recta,bueno
+ACASSUSO,,avenida,ciclovia,homicidio,pf + same,motocicleta,alfa romeo,100,f,conductor,herido leve,curva,nublado
+AEROLINEAS ARGENTINAS,,autopista,carril exclusivo,,pf + hospitales,peaton,andino,1000,,pasajero,herido grave,interseccion,llovizna
+ACEVEDO,,otros,calle de convivencia,,pf + auxilios,transporte de carga,appia,10000,,,herido sin datos,rotonda,lluvia
+ARMENIA,,,otros,,pf + same + hospitales,transporte de pasajeros,aprilia,1001,,,fallecido,distribuidor,nieve
+"ACEVEDO, EDUARDO",,,,,pf + same + auxilios,cuatriciclo,arko,1011,,,sin datos,paso a nivel ff.cc.,granizo
 "IBARBOUROU, JUANA DE",,,,,pf + hospitales + auxilios,bicicleta,asia towner,102,,,,puente,
 ACONCAGUA,,,,,pf+same+hospitales+auxilios,traccion a sangre,audi,105,,,,otro,
 "ACOSTA, MARIANO",,,,,same,animal,aurora,105 c,,,,,

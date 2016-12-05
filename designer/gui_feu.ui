@@ -70,7 +70,7 @@
             <item>
              <widget class="QSpinBox" name="sumario_spinBox">
               <property name="maximum">
-               <number>5000</number>
+               <number>100000</number>
               </property>
              </widget>
             </item>
@@ -435,6 +435,9 @@
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
+              <property name="maximum">
+               <number>10000</number>
+              </property>
              </widget>
             </item>
             <item>
@@ -738,7 +741,7 @@
             <item>
              <widget class="QSpinBox" name="numeroParticipantePar_spinBox">
               <property name="maximum">
-               <number>15</number>
+               <number>50</number>
               </property>
              </widget>
             </item>
@@ -1026,7 +1029,7 @@
             <item>
              <widget class="QSpinBox" name="numeroParticipanteVic_spinBox">
               <property name="maximum">
-               <number>15</number>
+               <number>50</number>
               </property>
              </widget>
             </item>
@@ -1059,7 +1062,7 @@
             <item>
              <widget class="QLabel" name="label_29">
               <property name="text">
-               <string>Causa: </string>
+               <string>Estado: </string>
               </property>
              </widget>
             </item>

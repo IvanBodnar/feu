@@ -148,8 +148,6 @@ class FormularioFeu(QtGui.QDialog):
         else:
             lat = None
 
-        print(long, lat)
-
         via_dividida_list = check_boxes(self.ui.viaDivididaPor_groupBox.children())
         prioridad_regulada_list = check_boxes(self.ui.prioridadReguladaPor_groupBox.children())
 
